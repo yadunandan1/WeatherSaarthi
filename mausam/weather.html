@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather Web Application</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient( #87ceeb, #f0f8ff);
+      color: #333;
+    }
+
+    .app{
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .search {
+      display: flex;
+      gap: 10px;
+    }
+    .search input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .search button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #1e90ff;
+      color: white;
+      font-weight: bold;
+      cursor: pointer; /* Enabled for JS */
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .location {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .temp {
+      font-size: 60px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .condition {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .metric:hover{
+background-color: #87ceeb;
+
+border-radius: 20px;
+    }
+
+    .forecast {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+    .day:hover{
+        background-color:#87ceeb ;
+        border-radius: 10px;
+    }
+         
+
+    .day {
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <!-- Header -->
+    <header>
+      <h1>Weather App</h1>
+      <form class="search" id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search city..." />
+        <button type="submit">Search</button>
+      </form>
+    </header>
+
+    <!-- Current Weather Card -->
+    <section class="card" id="currentWeather">
+      <div class="location" id="city">New Delhi</div>
+      <div class="temp" id="temp">31°</div>
+      <div class="condition" id="condition">Partly Cloudy</div>
+      <div class="metrics">
+        <div class="metric">
+          <div>Humidity</div>
+          <strong id="humidity">58%</strong>
+        </div>
+        <div class="metric">
+          <div>Wind</div>
+          <strong id="wind">12 km/h</strong>
+        </div>
+        <div class="metric">
+          <div>Pressure</div>
+          <strong id="pressure">1006 hPa</strong>
+        </div>
+        <div class="metric">
+          <div>UV Index</div>
+          <strong id="uv">5</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forecast Section -->
+    <section class="forecast" id="forecast">
+      <div class="day">
+        <h3>Sun</h3>
+        <p><span class="hi">34°</span> / <span class="lo">27°</span></p>
+        <small>Sunny</small>
+      </div>
+      <div class="day">
+        <h3>Mon</h3>
+        <p><span class="hi">33°</span> / <span class="lo">26°</span></p>
+        <small>Cloudy</small>
+      </div>
+      <div class="day">
+        <h3>Tue</h3>
+        <p><span class="hi">31°</span> / <span class="lo">25°</span></p>
+        <small>Showers</small>
+      </div>
+      <div class="day">
+        <h3>Wed</h3>
+        <p><span class="hi">32°</span> / <span class="lo">26°</span></p>
+        <small>Partly Sunny</small>
+      </div>
+      <div class="day">
+        <h3>Thu</h3>
+        <p><span class="hi">30°</span> / <span class="lo">24°</span></p>
+        <small>Overcast</small>
+      </div>
+    </section>
+  </div>
+
+  <script src="./weather.js"></script>
+</body>
+</html>
